@@ -13,13 +13,11 @@ export class ModalService {
 
   constructor() { }
 
-  /*assigning id for each modal for each modal be called and to do what they need to do */
   register(id: string) {
     this.modals.push({
       id,
       visible: false
     })
-
   }
 
   unregister(id: string) {
@@ -28,16 +26,16 @@ export class ModalService {
     )
   }
 
-  isModalOpen(id: string): boolean {
+  isModalOpen(id: string) : boolean {
     return !!this.modals.find(element => element.id === id)?.visible
   }
 
   toggleModal(id: string) {
     const modal = this.modals.find(element => element.id === id)
 
-    if (modal) {
+    if(modal) {
       modal.visible = !modal.visible
     }
-    //this.visible = !this.visible
+    // this.visible = !this.visible
   }
 }

@@ -8,7 +8,7 @@ import { TabComponent } from '../tab/tab.component';
 })
 export class TabsContainerComponent implements AfterContentInit {
 
-  @ContentChildren(TabComponent) tabs?: QueryList<TabComponent>
+  @ContentChildren(TabComponent) tabs: QueryList<TabComponent> = new QueryList()
 
   constructor() { }
 
@@ -22,16 +22,13 @@ export class TabsContainerComponent implements AfterContentInit {
     }
   }
 
-  /*setting each tab off */
   selectTab(tab: TabComponent) {
     this.tabs?.forEach(tab => {
       tab.active = false
     })
 
-    /*setting the active property */
     tab.active = true
 
-    /*prevent the default behavior of '#' on URL*/
     return false
   }
 

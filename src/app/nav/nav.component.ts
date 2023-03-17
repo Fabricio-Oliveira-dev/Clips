@@ -6,14 +6,13 @@ import { ModalService } from '../services/modal.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit{
+export class NavComponent implements OnInit {
 
   constructor(public modal: ModalService) { }
 
   ngOnInit(): void {
-
   }
-  /*Open the modal login and preventing the user to be redirected unexpectedly*/
+
   openModal($event: Event) {
     $event.preventDefault()
 

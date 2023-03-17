@@ -11,7 +11,9 @@ describe('AuthModalComponent', () => {
       declarations: [ AuthModalComponent ]
     })
     .compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(AuthModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
