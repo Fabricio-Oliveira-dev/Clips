@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import IUser from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +9,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  constructor(private auth: AuthService) { }
+
+  inSubmission = false /*it will toggle the button's disable attribute */
+
   name = new FormControl('', [
     Validators.required,
     Validators.minLength(3)
@@ -15,7 +21,7 @@ export class RegisterComponent {
     Validators.required,
     Validators.email
   ])
-  age = new FormControl('', [
+  age = new FormControl<number | null>(null, [
     Validators.required,
     Validators.min(18),
     Validators.max(120)
@@ -45,9 +51,23 @@ export class RegisterComponent {
     phoneNumber: this.phoneNumber
   })
 
-  register() {
+  async register() {
     this.showAlert = true
     this.alertMsg = 'Please wait! Your account is being created.'
     this.alertColor = 'blue'
+    this.inSubmission = true /*disable the form while the request to create an account hasn't been completed */
+
+    /*send a request to Firebase with user's credentials. If successful, will be returned with the user's credentials */
+    try {
+      await this.auth.createUser(this.registerForm.value as IUser)
+    }
+    catch (e) {
+      this.alertMsg = 'An unexpected error occurred. Please try again later.'
+      this.alertColor = 'red'
+      this.inSubmission = false /*enable the form again to the user try again if some error occur */
+      return
+    }
+    this.alertMsg = 'Success! Your account has been created.'
+    this.alertColor = 'green'
   }
 }
