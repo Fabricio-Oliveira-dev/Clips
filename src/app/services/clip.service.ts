@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection,
-  DocumentReference,
+import { 
+  AngularFirestore, AngularFirestoreCollection, DocumentReference, 
   QuerySnapshot
 } from '@angular/fire/compat/firestore'
 import IClip from '../models/clip.model';
@@ -19,7 +19,7 @@ export class ClipService {
     private db: AngularFirestore,
     private auth: AngularFireAuth,
     private storage: AngularFireStorage
-  ) {
+  ) { 
     this.clipsCollection = db.collection('clips')
   }
 
@@ -27,7 +27,6 @@ export class ClipService {
     return this.clipsCollection.add(data)
   }
 
-  /*retrieve the clips uploaded by the user*/
   getUserClips(sort$: BehaviorSubject<string>) {
     return combineLatest([
       this.auth.user,
@@ -35,7 +34,7 @@ export class ClipService {
     ]).pipe(
       switchMap(values => {
         const [user, sort] = values
-
+        
         if(!user) {
           return of([])
         }
@@ -61,8 +60,12 @@ export class ClipService {
 
   async deleteClip(clip: IClip) {
     const clipRef = this.storage.ref(`clips/${clip.fileName}`)
+    const screenshotRef = this.storage.ref(
+      `screenshots/${clip.screenshotFileName}`
+    )
 
     await clipRef.delete()
+    await screenshotRef.delete()
 
     await this.clipsCollection.doc(clip.docID).delete()
   }
