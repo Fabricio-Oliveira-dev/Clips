@@ -17,7 +17,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["@ffmpeg/ffmpeg"],
+            "allowedCommonJsDependencies": [
+              "@ffmpeg/ffmpeg",
+              "@videojs/xhr",
+              "global/document",
+              "global/window",
+              "keycode",
+              "mux.js/lib/tools/parse-sidx",
+              "mux.js/lib/utils/clock",
+              "safe-json-parse/tuple",
+              "videojs-vtt.js"
+            ],
             "outputPath": "dist/clips",
             "index": "src/index.html",
             "main": "src/main.ts",

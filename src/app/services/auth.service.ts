@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable, of } from 'rxjs';
 import IUser from '../models/user.model';
-import { map, delay, filter, switchMap } from 'rxjs';
+import { map, delay, filter, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ActivatedRoute, NavigationEnd } from '@angular/router';
 
