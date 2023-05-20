@@ -1,27 +1,45 @@
-# Clips
+# About this project
+https://clipsproject.vercel.app/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
+Clips is a web application where users can upload video clips from their best gameplays up to ***25MB***, share their videos, manage uploaded videos, and watch videos from other people.
 
-## Development server
+### Home page
+The home page supports infinite scrolling meanwhile videos are being listed and videos are shown from recent to oldest order.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Manage page
+On the manage page, users can choose if videos are listed in recent uploads or oldest uploads, change their titles, copy links from the videos or delete them.
 
-## Code scaffolding
+### Upload page
+On the upload page, users can choose to upload a video clip from their device or drag and drop it into the right area. After the video is chosen, the option to select a thumbnail and the video title appears. While the video is being uploaded, it is shown a percentage to finish the upload and a succesful message after the process is finished. ***If the user tries to upload a video larger than 25MB, an error message is shown.*** After the video is uploaded, in the area below, are shown a few other videos to the user to watch whether he wants.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Tecnologias utilizadas
+## Back End
+- Firebase
 
-## Build
+## Front End
+- JavaScript/TypeScript / HTML / Tailwind CSS
+- Angular
+- videojs
+- ffmpeg
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Implantação em produção
+- Vercel
 
-## Running unit tests
+# Como executar o projeto
+Pré-requisitos: Angular 15, node 18.16.0+, npm 9.5.1+
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+# clonar repositório
+git clone https://github.com/Fabricio-Oliveira-dev/Clips.git
 
-## Running end-to-end tests
+# instalar dependências
+npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# executar o projeto
+ng serve
+```
+# Autor
 
-## Further help
+Fabrício de Oliveira Pita
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+https://www.linkedin.com/in/profissional-fabricio-oliveira/
