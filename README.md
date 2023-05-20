@@ -12,7 +12,7 @@ On the manage page, users can choose if videos are listed in recent uploads or o
 ### Upload page
 On the upload page, users can choose to upload a video clip from their device or drag and drop it into the right area. After the video is chosen, the option to select a thumbnail and the video title appears. While the video is being uploaded, it is shown a percentage to finish the upload and a succesful message after the process is finished. ***If the user tries to upload a video larger than 25MB, an error message is shown.*** After the video is uploaded, in the area below, are shown a few other videos to the user to watch whether he wants.
 
-# Tecnologias utilizadas
+# Technologies used
 ## Back End
 - Firebase
 
@@ -22,11 +22,11 @@ On the upload page, users can choose to upload a video clip from their device or
 - videojs
 - ffmpeg
 
-## Implantação em produção
+## Deployment in production
 - Vercel
 
-# Como executar o projeto
-Pré-requisitos: Angular 15, node 18.16.0+, npm 9.5.1+
+# How to run the project
+Pre-requirements: Angular 15, node 18.16.0+, npm 9.5.1+
 
 ```
 # clonar repositório
@@ -38,7 +38,7 @@ npm install
 # executar o projeto
 ng serve
 ```
-# Autor
+# Author
 
 Fabrício de Oliveira Pita
 
